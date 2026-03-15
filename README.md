@@ -163,10 +163,10 @@ python scripts/plot_results.py
 
 This writes into `results/figures/`:
 
-- **total_reads_per_sample.png** — Sequencing depth per sample (DNA vs RNA).
-- **mean_quality_per_sample.png** — Per-sample mean base quality (Phred).
+- **total_reads_per_sample.png** - Sequencing depth per sample (DNA vs RNA).
+- **mean_quality_per_sample.png** -Per-sample mean base quality (Phred).
 - **gc_content_per_sample.png** — GC % per sample.
-- **assay_summary.png** — Total reads and sample count by assay (DNA vs RNA).
+- **assay_summary.png** - Total reads and sample count by assay (DNA vs RNA).
 - **depth_and_library_size.png** — Depth / library size (reads in millions).
 
 The script uses real read counts from the FASTQ files listed in the manifests; if you have run FastQC/MultiQC, it will use those metrics where available. The `docs/report_template.md` file outlines the full report structure (mapping rates, coverage, variant counts, etc.) for when the full pipelines have been run.
@@ -179,6 +179,4 @@ The script uses real read counts from the FASTQ files listed in the manifests; i
 - **Data and metadata management**: Manifests and utilities keep DNA/RNA aligned for multi-omics.
 - **Ready for downstream analysis**: GVCFs and gene counts feed variant discovery and differential expression.
 
----
-
-**Project name: SeqGate** — suitable as the GitHub repo or display name. Alternative names you could use: *NGS Readiness*, *DualSeq QC*, *FitForAnalysis*.
+-
