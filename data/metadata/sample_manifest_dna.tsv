@@ -1,0 +1,2 @@
+sample_id	fastq_r1	fastq_r2	library	platform	run_id
+ERR1760144	data/raw/fastq/ERR1760144_1.fastq.gz	data/raw/fastq/ERR1760144_2.fastq.gz	lib1	ILLUMINA	PRJEB18647

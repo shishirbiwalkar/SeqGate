@@ -1,0 +1,50 @@
+#SeqGate — ignore large data, binaries, and generated outputs
+#Author: Shishir Biwalkar
+
+#Raw data (run download_data.sh to fetch)
+data/raw/fastq/*.fastq.gz
+data/raw/fastq/*.fq.gz
+*.fastq.gz.bak
+
+#Reference genomes and indexes (user provides)
+data/reference/*.fa
+data/reference/*.fai
+data/reference/*.dict
+data/reference/*.bwt
+data/reference/*.pac
+data/reference/*.ann
+data/reference/*.amb
+data/reference/star_index/
+
+#Pipeline outputs (regenerate with pipeline)
+results/dna/
+results/rna/
+results/qc/
+*.bam
+*.bai
+*.g.vcf.gz
+*.vcf.gz
+*.tbi
+*.metrics.txt
+
+#Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+#Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+#OS and editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+#Matplotlib cache
+.matplotlib/

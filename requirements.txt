@@ -1,0 +1,5 @@
+#Genomics_Workflows — minimal deps for scripts
+#Author: Shishir Biwalkar
+matplotlib>=3.7.0
+pyyaml>=6.0
+pandas>=2.0.0

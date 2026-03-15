@@ -1,0 +1,45 @@
+#Genomics Workflows pipeline config — single source of truth
+#Author: Shishir Biwalkar
+#Reference: DNA uses Arabidopsis (ERR1760144); RNA uses human (SRR1039508/09). See docs/DATASETS.md.
+
+input:
+  fastq_dir: "data/raw/fastq"
+  bam_dir: "data/raw/bam"
+  output_dir: "results"
+  dna_manifest: "data/metadata/sample_manifest_dna.tsv"
+  rna_manifest: "data/metadata/sample_manifest_rna.tsv"
+
+reference:
+  genome_fa: "data/reference/genome.fa"
+  genome_dict: "data/reference/genome.dict"
+  genome_fai: "data/reference/genome.fa.fai"
+  bwa_index_prefix: "data/reference/genome.fa"
+  star_index_dir: "data/reference/star_index"
+  gtf_annotation: "data/reference/genes.gtf"
+
+qc:
+  fastqc_threads: 4
+  coverage_min_depth: 10
+  coverage_target_depth: 30
+
+alignment:
+  bwa_threads: 4
+  star_threads: 4
+  read_group_template: "@RG\tID:{sample}\tSM:{sample}\tPL:ILLUMINA\tLB:lib1"
+
+gatk:
+  haplotypecaller_threads: 4
+  emit_mode: "GVCF"
+  min_base_quality: 20
+  min_mapping_quality: 20
+  intervals: null
+
+annotation:
+  snpeff_db: "GRCh38.99"
+  vep_cache_dir: null
+
+report:
+  title: "Genomics Workflows Analytical Report"
+  output_md: "results/report.md"
+  figures_dir: "results/figures"
+
