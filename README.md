@@ -12,8 +12,8 @@ This pipeline **analyzes DNA and RNA sequencing data** to determine whether they
 
 Production-style genomics workflows (aligned to typical bioinformatics roles):
 
-- **DNA**: QC → BWA-MEM alignment → GATK variant calling → GVCFs (and optional annotation).
-- **RNA**: QC → STAR alignment → featureCounts → gene-level count matrix for DESeq2/edgeR.
+- **DNA**: QC -> BWA-MEM alignment → GATK variant calling → GVCFs (and optional annotation).
+- **RNA**: QC -> STAR alignment → featureCounts → gene-level count matrix for DESeq2/edgeR.
 - **Metadata**: Sample manifests and utilities keep DNA/RNA samples aligned for multi-omics.
 
 Configuration-driven and reproducible; all steps use explicit shell commands.
@@ -21,7 +21,7 @@ Configuration-driven and reproducible; all steps use explicit shell commands.
 ##What type of data you can test
 
 | Assay | Data type | Format | Notes |
-|-------|-----------|--------|--------|
+
 | **DNA** | Whole-genome or targeted DNA-seq | Paired-end FASTQ (`.fastq.gz`, `.fq.gz`) | One pair (R1, R2) per sample. Reference: same organism as data (e.g. *Arabidopsis*, human). |
 | **RNA** | Bulk RNA-seq (mRNA) | Paired-end FASTQ (`.fastq.gz`, `.fq.gz`) | One pair per sample. Reference: genome FASTA + GTF for the organism. Strandedness in manifest (`unstranded` / `stranded` / `reverse`) for featureCounts. |
 
@@ -30,7 +30,7 @@ Configuration-driven and reproducible; all steps use explicit shell commands.
 ##What data we used for testing
 
 | Purpose | Data | Source | What we used |
-|---------|------|--------|--------------|
+
 | **DNA pipeline / QC** | ERR1760144 | ENA, *Arabidopsis halleri* (PRJEB18647) | First **1,000 read pairs** (subset) from the real run so the project runs without the full ~20GB download. Full run available via `scripts/download_data.sh`. |
 | **RNA pipeline / QC** | SRR1039508, SRR1039509 | SRA/ENA, human airway smooth muscle (PRJNA229998, Himes et al.) | **Minimal paired-end FASTQs** (500 pairs per run) from `scripts/create_minimal_rna_fastq.py` for quick testing; or full runs (~1.6GB each) via `scripts/download_data.sh`. |
 
