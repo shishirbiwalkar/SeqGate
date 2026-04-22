@@ -165,7 +165,7 @@ This writes into `results/figures/`:
 
 - **total_reads_per_sample.png** - Sequencing depth per sample (DNA vs RNA).
 - **mean_quality_per_sample.png** -Per-sample mean base quality (Phred).
-- **gc_content_per_sample.png** — GC % per sample.
+- **gc_content_per_sample.png** - GC % per sample.
 - **assay_summary.png** - Total reads and sample count by assay (DNA vs RNA).
 - **depth_and_library_size.png** — Depth / library size (reads in millions).
 
@@ -173,7 +173,7 @@ The script uses real read counts from the FASTQ files listed in the manifests; i
 
 ##Why this matches the job description
 
-- **End-to-end workflows**: QC → alignment → variant calling (DNA) and QC → alignment → counts (RNA); you assess whether data are fit to proceed, then produce analysis-ready outputs.
+- **End-to-end workflows**: QC -> alignment → variant calling (DNA) and QC → alignment → counts (RNA); you assess whether data are fit to proceed, then produce analysis-ready outputs.
 - **Established tools**: BWA, GATK, STAR, featureCounts, FastQC, and MultiQC.
 - **Reproducibility**: Single config, explicit commands, structured manifests.
 - **Data and metadata management**: Manifests and utilities keep DNA/RNA aligned for multi-omics.
