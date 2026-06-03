@@ -1,0 +1,42 @@
+# SeqGate pipeline config — copy to pipeline_config.yaml and fill in your paths
+# Author: Shishir Biwalkar
+# Reference: DNA uses Arabidopsis (ERR1760144); RNA uses human (SRR1039508/09). See docs/DATASETS.md.
+
+input:
+  fastq_dir: "data/raw/fastq"
+  bam_dir: "data/raw/bam"
+  output_dir: "results"
+  dna_manifest: "data/metadata/sample_manifest_dna.tsv"
+  rna_manifest: "data/metadata/sample_manifest_rna.tsv"
+
+reference:
+  # Download the appropriate reference genome and point these paths at it.
+  # For DNA test data (Arabidopsis ERR1760144): use TAIR10 or Araport11.
+  # For RNA test data (human SRR1039508/09): use GRCh38 + matching GTF.
+  genome_fa: "/path/to/genome.fa"
+  genome_dict: "/path/to/genome.dict"
+  genome_fai: "/path/to/genome.fa.fai"
+  bwa_index_prefix: "/path/to/bwa_index/genome.fa"
+  star_index_dir: "/path/to/star_index"
+  gtf_annotation: "/path/to/genes.gtf"
+
+qc:
+  fastqc_threads: 4
+  coverage_min_depth: 10       # flag samples below this as low-coverage
+  coverage_target_depth: 30
+
+alignment:
+  bwa_threads: 4
+  star_threads: 4
+  read_group_template: "@RG\tID:{sample}\tSM:{sample}\tPL:ILLUMINA\tLB:lib1"
+
+gatk:
+  haplotypecaller_threads: 4
+  emit_mode: "GVCF"            # GVCF for joint genotyping; BP_RESOLUTION for single-sample
+  min_base_quality: 20
+  min_mapping_quality: 20
+  intervals: null              # optional BED file to restrict to target regions
+
+annotation:
+  snpeff_db: "GRCh38.99"       # match your reference genome version
+  vep_cache_dir: null          # set to your VEP cache directory if using VEP
